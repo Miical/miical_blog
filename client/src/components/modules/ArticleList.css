@@ -1,0 +1,13 @@
+.ArticleList-container {
+  border-color: rgb(208,215,222);
+  border-width: 1px;
+  border-radius: 3%;
+  margin: 2% 1% 2% 1%;
+  height: auto;
+  width: 7cm;
+}
+
+.ArticleList-line {
+  margin: 2% 0 2% 0;
+  color: rgb(208,215,222); 
+}

@@ -1,0 +1,7 @@
+.MainContainer {
+  width: auto;
+  height: auto;
+
+  display: flex;
+  align-content: center;
+}

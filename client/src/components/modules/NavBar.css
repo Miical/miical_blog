@@ -1,0 +1,10 @@
+.NavBar-container {
+  padding: var(--s) var(--m);
+  background-color: rgb(36, 41, 47);
+}
+
+.NavBar-title {
+  color: white;
+  font-family: "Dancing Script", cursive;
+  font-size: large;
+}
