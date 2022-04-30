@@ -1,14 +1,16 @@
 import React from "react";
+import ArticleItem from "./ArticleItem";
 
 import "./ArticlePreview.css";
 
 const ArticlePreview = () => {
   return (
-    <div className="ArticlePreview-container shadow-md">
-      <p>wangning shi hanpi. wangning shi hanpi. wangning shi hanpi. wangning shi hanpi. wangning shi hanpi. wangning shi hanpi. wangning shi hanpi. wangning shi hanpi.wangning shi hanpi. wangning shi hanpi. wangning shi hanpi. wangning shi hanpi.wangning shi hanpi. wangning shi hanpi. wangning shi hanpi. wangning shi hanpi.wangning shi hanpi. wangning shi hanpi. wangning shi hanpi. wangning shi hanpi.wangning shi hanpi. wangning shi hanpi. wangning shi hanpi. wangning shi hanpi.</p>
-      <p>wangning shi hanpi. wangning shi hanpi. wangning shi hanpi. wangning shi hanpi. </p>
-      <p>wangning shi hanpi. wangning shi hanpi. wangning shi hanpi. wangning shi hanpi. </p>
-      <p>wangning shi hanpi. wangning shi hanpi. wangning shi hanpi. wangning shi hanpi. </p>
+    <div className="ArticlePreview-container">
+      <ArticleItem />
+      <ArticleItem />
+      <ArticleItem />
+      <ArticleItem />
+      <ArticleItem />
     </div>
   );
 };
