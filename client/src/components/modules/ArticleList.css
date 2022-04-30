@@ -18,6 +18,10 @@
   color:rgb(87, 96, 106);
 }
 
+.ArticleList-itemContainer {
+  margin: 10px 2px 10px 2px; 
+}
+
 .ArticleList-line {
   margin: 2% 0 2% 0;
   color: rgb(208, 215, 222);

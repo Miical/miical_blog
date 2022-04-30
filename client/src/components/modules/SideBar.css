@@ -4,3 +4,10 @@
       display: none
     };
 }
+
+@media (min-height: 1000px) {
+    .SideBar-adapter {
+      width: 0;
+      display: none
+    };
+}
