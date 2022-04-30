@@ -11,6 +11,7 @@ import { get, post } from "../utilities";
 
 
 import Home from "./pages/Home.js";
+import ArticleView from "./pages/ArticleView.js";
 
 /**
  * Define the "App" component
@@ -45,6 +46,7 @@ const App = () => {
     <>
       <Router>
         {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
+        <ArticleView path="/article" /> 
         <Home path="/" /> 
         <NotFound default />
       </Router>

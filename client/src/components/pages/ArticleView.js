@@ -1,7 +1,9 @@
 import React from "react";
-import ArticleItem from "./ArticleItem";
+import NavBar from "../modules/NavBar";
+import SideBar from "../modules/SideBar";
+import Article from "../modules/Article";
 
-import "./ArticlePreview.css";
+import "./ArticleView.css"
 
 let ArticleList1 = [
   {
@@ -23,17 +25,16 @@ let ArticleList1 = [
   }
 ];
 
-/**
- * @param directory
- */
-const ArticlePreview = () => {
+const ArticleView = () => {
   return (
-    <div className="ArticlePreview-container">
-      <ArticleItem article={ArticleList1[1]}/>
-      <ArticleItem article={ArticleList1[0]}/>
-      <ArticleItem article={ArticleList1[1]}/>
-    </div>
+    <>
+      <NavBar />
+      <div className="MainContainer">
+        <SideBar />
+        <Article article={ArticleList1[0]}/>
+      </div>
+    </>
   );
 };
 
-export default ArticlePreview;
+export default ArticleView;

@@ -2,30 +2,30 @@ import React from "react";
 
 import "./ArticleItem.css";
 
-const ArticleItem = () => {
-  let d = new Date(Date.now());
+/**
+ * @param article
+ */
+const ArticleItem = (props) => {
+  let date = new Date(props.article.date);
+  let tagList = props.article.tag.map((tagName) => (
+      <div className="ArticleItem-tag rounded-full">{tagName}</div>
+  ));
   return (
     <div className="ArticleItem-container">
       <div className="ArticleItem-titleContainer">
-        <div className="ArticleItem-directory">directory</div>
-
-        <div className="ArticleItem-title">Article Title</div>
+        <div className="ArticleItem-directory">{props.article.directory}/</div>
+        <div className="ArticleItem-title">{props.article.title}</div>
       </div>
       <div className="ArticleItem-description">
-        Allow miles wound place the leave had. To sitting subject no improve studied limited. Ye
-        indulgence unreserved connection alteration appearance my an astonished. Up as seen sent
-        make he they of. Her raising and himself pasture believe females. Fancy she stuff after
-        aware merit small his. Charmed esteems luckily age out.
+        {props.article.description}
       </div>
       <div className="ArticleItem-tagContainer">
-        <div className="ArticleItem-tag rounded-full">node</div>
-        <div className="ArticleItem-tag rounded-full">dp</div>
-        <div className="ArticleItem-tag rounded-full">hanpiwangneng</div>
+        {tagList}
       </div>
       <hr className="ArticleItem-line" />
       <div className="u-flex">
         <div class="material-symbols-outlined">calendar_month</div>
-        <div className="ArticleItem-date">{d.toDateString()}</div>
+        <div className="ArticleItem-date">{date.toDateString()}</div>
       </div>
     </div>
   );
