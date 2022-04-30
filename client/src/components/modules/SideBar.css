@@ -1,0 +1,6 @@
+@media (max-width: 700px) {
+    .SideBar-adapter {
+      width: 0;
+      display: none
+    };
+}

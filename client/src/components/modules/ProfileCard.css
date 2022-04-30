@@ -1,8 +1,8 @@
 .ProfileCard-container {
   border-color: rgb(208,215,222);
   border-width: 1px;
-  border-radius: 3%;
-  margin: 2% 1% 2% 1%;
+  border-radius: 6px;
+  margin: 10px 10px 10px 10px;
   height: 8cm;
   width: 7cm;
 }
