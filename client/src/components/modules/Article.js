@@ -6,7 +6,6 @@ import ReactDom from "react-dom";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-import rehypeSanitize from "rehype-sanitize";
 import "./github-markdown-css/github-markdown.css";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -37,7 +36,7 @@ const Article = (props) => {
           children={props.article.content}
           escapeHtml={false}
           remarkPlugins={[remarkGfm, remarkMath]}
-          rehypePlugins={[rehypeKatex, rehypeSanitize]}
+          rehypePlugins={[rehypeKatex]}
           className="markdown-body"
           components={{
             code({ node, inline, className, children, ...props }) {
