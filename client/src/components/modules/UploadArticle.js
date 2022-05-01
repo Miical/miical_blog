@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Article from "./Article";
 import "./UploadArticle.css";
+import { post } from "../../utilities";
 
 const UploadArticle = () => {
   let article = {
@@ -23,7 +23,7 @@ const UploadArticle = () => {
   const Upload = () => {
     article.date = Date.parse(new Date());
     console.log(article);
-
+    post("/api/article", article);
   };
 
   return (
