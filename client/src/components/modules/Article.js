@@ -9,8 +9,7 @@ import rehypeKatex from "rehype-katex";
 import rehypeSanitize from "rehype-sanitize";
 import "./github-markdown-css/github-markdown.css";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {coy   } from "react-syntax-highlighter/dist/esm/styles/prism";
-
+import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 /**
  * @param article
@@ -20,17 +19,6 @@ const Article = (props) => {
   let tagList = props.article.tag.map((tagName) => (
     <div className="Article-tag rounded-full">{tagName}</div>
   ));
-
-  const [markdown, setMarkdown] = useState("loading...");
-  const showFile = (e) => {
-    e.preventDefault();
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const text = e.target.result;
-      setMarkdown(text);
-    };
-    reader.readAsText(e.target.files[0]);
-  };
 
   return (
     <div className="Article-container">
@@ -44,10 +32,9 @@ const Article = (props) => {
         <div className="Article-date">{date.toDateString()}</div>
       </div>
       <hr className="Article-line" />
-      <input type="file" onChange={showFile} />
       <div className="Article-MDcontainer">
         <ReactMarkdown
-          children={markdown}
+          children={props.article.content}
           escapeHtml={false}
           remarkPlugins={[remarkGfm, remarkMath]}
           rehypePlugins={[rehypeKatex, rehypeSanitize]}

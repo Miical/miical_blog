@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 
 import "./ArticleItem.css";
 
@@ -14,7 +15,7 @@ const ArticleItem = (props) => {
     <div className="ArticleItem-container">
       <div className="ArticleItem-titleContainer">
         <div className="ArticleItem-directory">{props.article.directory}/</div>
-        <div className="ArticleItem-title">{props.article.title}</div>
+        <Link to={"/article/" + props.article.title} className="ArticleItem-title">{props.article.title}</Link>
       </div>
       <div className="ArticleItem-description">
         {props.article.description}

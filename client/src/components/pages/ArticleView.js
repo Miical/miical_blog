@@ -1,37 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "../modules/NavBar";
 import SideBar from "../modules/SideBar";
 import Article from "../modules/Article";
 
-import "./ArticleView.css"
+import "./ArticleView.css";
+import { get } from "../../utilities";
 
-let ArticleList1 = [
-  {
-    directory: "study_notes",
-    title: "article title1",
-    description:
-      " allow miles wound place the leave had. to sitting subject no improve studied limited. ye indulgence unreserved connection alteration appearance my an astonished. up as seen sent make he they of. her raising and himself pasture believe females. fancy she stuff after aware merit small his. charmed esteems luckily age out.",
-    tag: ["王宁", "是", "憨批", "哈哈"],
-    date: 324523434,
-    content: "dhdsihfiusdhfiuhi"
-  }, {
-    directory: "study_notes",
-    title: "article title2",
-    description:
-      " allow miles wound place the leave had. to sitting subject no improve studied limited. ye indulgence unreserved connection alteration appearance my an astonished. up as seen sent make he they of. her raising and himself pasture believe females. fancy she stuff after aware merit small his. charmed esteems luckily age out.",
-    tag: ["dp", "note", "hanpi"],
-    date: 324523434,
-    content: "dhdsihfiusdhfiuhi"
-  }
-];
+let init_article = {
+  directory: "no directory",
+  title: "no title",
+  description:
+    "no description",
+  tag: ['empty'],
+  date: 0,
+  content: "no content",
+};
 
-const ArticleView = () => {
+/**
+ * @param articleId
+ */
+const ArticleView = (props) => {
+  const [article, setArticle] = useState(init_article);
+
+  useEffect(() => {
+    get("/api/singlearticle", { articleId: props.articleId }).then((articleObj) => {
+      setArticle(articleObj);
+    });
+  }, []);
+
   return (
     <>
       <NavBar />
       <div className="MainContainer">
         <SideBar />
-        <Article article={ArticleList1[0]}/>
+        <Article article={article} />
       </div>
     </>
   );

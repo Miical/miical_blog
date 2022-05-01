@@ -64,6 +64,11 @@ let ArticleList = [
 router.get("/articles", (req, res) => {
   res.send(ArticleList);
 });
+router.get("/singlearticle", (req, res) => {
+  res.send(ArticleList.find((story) => {
+    return story.title === req.query.articleId;
+  }));
+});
 router.post("/article", (req, res) => {
   ArticleList.push(req.body);
   res.send(req.body);
