@@ -1,6 +1,7 @@
 import React from "react";
 import ProfileCard from "./ProfileCard";
 import ArticleList from "./ArticleList";
+import UploadArticle from "./UploadArticle";
 import "./SideBar.css"
 
 const SideBar= () => {
@@ -8,6 +9,7 @@ const SideBar= () => {
     <div className="SideBar-adapter">
       <ProfileCard />
       <ArticleList />
+      <UploadArticle />
     </div>
   );
 };
