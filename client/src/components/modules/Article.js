@@ -55,6 +55,9 @@ const Article = (props) => {
                 </code>
               );
             },
+            li: 'strong',
+            img: ({src, ...props}) => 
+              <div>picture src: {src}</div>
           }}
         />
       </div>

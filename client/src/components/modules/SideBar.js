@@ -2,6 +2,7 @@ import React from "react";
 import ProfileCard from "./ProfileCard";
 import ArticleList from "./ArticleList";
 import UploadArticle from "./UploadArticle";
+import UploadImage from "./UploadImage";
 import "./SideBar.css"
 
 const SideBar= () => {
@@ -10,6 +11,7 @@ const SideBar= () => {
       <ProfileCard />
       <ArticleList />
       <UploadArticle />
+      <UploadImage />
     </div>
   );
 };

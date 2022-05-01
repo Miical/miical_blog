@@ -1,0 +1,49 @@
+.UploadImage-container {
+  border-color: rgb(208, 215, 222);
+  border-width: 1px;
+  border-radius: 6px;
+  margin: 10px 10px 10px 10px;
+  height: auto;
+  width: 7cm;
+}
+
+.UploadImage-titleContainer {
+  background-color: rgb(246, 248, 250);
+  padding: 6px 10px 6px 20px;
+}
+
+.UploadImage-title {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: large;    
+  color:rgb(87, 96, 106);
+}
+
+.UploadImage-name{
+  margin: 5px 5px 2px 15px;
+  font-family: 'Ubuntu', sans-serif;
+  color:rgb(87, 96, 106); 
+  font-size: 16px; 
+}
+
+.UploadImage-line {
+  margin: 2% 0 2% 0;
+  color: rgb(208, 215, 222);
+}
+
+.UploadImage-selectFile {
+ margin: 2px 5px 2px 20px;
+ width: 85%;
+}
+
+.UploadImage-button {
+  background-color: rgb(45,164,78);
+  font-family: 'Ubuntu', sans-serif;
+  color: white; 
+  font-size: 14px; 
+  padding: 4px 10px 4px 10px;
+  border-color: rgb(42,145,71);
+  border-width: 1px;
+  border-radius: 7px; 
+  position: relative; 
+  margin: 10px 0px 15px 90px;
+}

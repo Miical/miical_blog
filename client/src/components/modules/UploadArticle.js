@@ -22,7 +22,6 @@ const UploadArticle = () => {
   };
   const Upload = () => {
     article.date = Date.parse(new Date());
-    console.log(article);
     post("/api/article", article);
   };
 

@@ -61,6 +61,7 @@ let ArticleList = [
     content: "dhdsihfiusdhfiuhi"
   }
 ];
+let imageList = [];
 router.get("/articles", (req, res) => {
   res.send(ArticleList);
 });
@@ -71,6 +72,15 @@ router.get("/singlearticle", (req, res) => {
 });
 router.post("/article", (req, res) => {
   ArticleList.push(req.body);
+  res.send(req.body);
+});
+router.get("/image", (req, res) => {
+  res.send(imageList.find((image) => {
+    return image.name === req.query.name;
+  }));
+});
+router.post("/image", (req, res) => {
+  imageList.push(req.body);
   res.send(req.body);
 });
 
