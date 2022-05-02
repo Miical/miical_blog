@@ -21,10 +21,8 @@ const Article = (props) => {
   ));
   const [imageList, setImageList] = useState([]);
   useEffect(() => {
-      console.log(props.article.title);
     get("/api/image", { article: props.article.title }).then((imgListObj) => {
       setImageList(imgListObj);
-      console.log(imgListObj);
     });
   }, [props.article.title]);
 
