@@ -76,6 +76,14 @@
 .Article-MDcontainer {
   margin: 30px 30px 30px 30px;
 }
+
+.Article-img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
 .material-symbols-outlined {
   zoom: 60%;
   margin: 3px 5px 2px 15px;

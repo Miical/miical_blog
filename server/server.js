@@ -49,6 +49,11 @@ mongoose
 
 // create a new express server
 const app = express();
+
+// change post limit
+app.use(express.json({limit: '5mb', extended: true}));
+app.use(express.urlencoded({limit: "5mb", extended: true, parameterLimit:5000}));
+
 app.use(validator.checkRoutes);
 
 // allow us to process POST requests
@@ -93,6 +98,8 @@ app.use((err, req, res, next) => {
     message: err.message,
   });
 });
+
+
 
 // hardcode port to 3000 for now
 const port = 3000;

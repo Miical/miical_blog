@@ -9,6 +9,7 @@ import rehypeKatex from "rehype-katex";
 import "./github-markdown-css/github-markdown.css";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { get } from "../../utilities";
 
 /**
  * @param article
@@ -18,6 +19,14 @@ const Article = (props) => {
   let tagList = props.article.tag.map((tagName) => (
     <div className="Article-tag rounded-full">{tagName}</div>
   ));
+  const [imageList, setImageList] = useState([]);
+  useEffect(() => {
+      console.log(props.article.title);
+    get("/api/image", { article: props.article.title }).then((imgListObj) => {
+      setImageList(imgListObj);
+      console.log(imgListObj);
+    });
+  }, [props.article.title]);
 
   return (
     <div className="Article-container">
@@ -55,9 +64,11 @@ const Article = (props) => {
                 </code>
               );
             },
-            li: 'strong',
-            img: ({src, ...props}) => 
-              <div>picture src: {src}</div>
+            img: ({ src, ...props }) => {
+              let img = imageList.find((imgobj) => imgobj.name === src.split("/")[1]);
+              if (img) return <img src={img.data} className="Article-img" />;
+              else return <div>image not found</div>;
+            },
           }}
         />
       </div>

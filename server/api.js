@@ -75,15 +75,17 @@ router.post("/article", (req, res) => {
   res.send(req.body);
 });
 router.get("/image", (req, res) => {
-  res.send(imageList.find((image) => {
-    return image.name === req.query.name;
-  }));
+  let imglist = []
+  for (let img of imageList) {
+    if (img.article === req.query.article)
+      imglist.push(img);
+  }
+  res.send(imglist);
 });
 router.post("/image", (req, res) => {
   imageList.push(req.body);
   res.send(req.body);
 });
-
 
 
 // anything else falls to this "not found" case
