@@ -25,7 +25,7 @@ const ArticleItem = (props) => {
           </Link>
         </div>
       </div>
-      <div className="ArticleItem-description">{props.article.description}</div>
+      <div className="ArticleItem-description">{props.article.content.slice(0, 250)}</div>
       <div className="ArticleItem-tagContainer">{tagList}</div>
       <hr className="ArticleItem-line" />
       <div className="u-flex">

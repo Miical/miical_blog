@@ -6,7 +6,6 @@ const UploadArticle = () => {
   let article = {
     title: "no title",
     directory: "no directory",
-    description: "no description",
     tag: [],
     date: 0,
     content: "none",
@@ -57,15 +56,6 @@ const UploadArticle = () => {
               article.tag = val.target.value.split(";").filter((tagVal) => {
                 return tagVal.length !== 0;
               });
-            }}
-          ></input>
-        </div>
-        <div>
-          <div className="UploadArticle-name">Discription</div>
-          <input
-            className="UploadArticle-input"
-            onChange={(val) => {
-              article.description = val.target.value;
             }}
           ></input>
         </div>

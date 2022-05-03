@@ -56,7 +56,6 @@ router.post("/article", (req, res) => {
   const newArticle = new Article({
     directory: req.body.directory,
     title: req.body.title,
-    description: req.body.description,
     tag: req.body.tag,
     date: req.body.date, 
     content: req.body.content
