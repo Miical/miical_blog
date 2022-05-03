@@ -73,7 +73,7 @@ router.get("/articlelist", (req, res) => {
   } else {
     let articlelist = [];
     for (let article of ArticleList) {
-      if (article.directory == req.query.directory)
+      if (article.directory === req.query.directory)
         articlelist.push(article);
     }
     res.send(articlelist);

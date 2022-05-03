@@ -14,7 +14,7 @@ const ArticlePreview = (props) => {
     get("/api/articlelist", {directory: props.directory}).then((storiesObj) => {
       setArticles(storiesObj);
     });
-  }, []);
+  }, [props.directory]);
 
   let articlesList = null;
   if (articles.length !== 0) {

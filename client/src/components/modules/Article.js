@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import "./github-markdown-css/github-markdown-light.css";
+import { Link } from "@reach/router";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { get } from "../../utilities";
@@ -29,7 +30,7 @@ const Article = (props) => {
   return (
     <div className="Article-container">
       <div className="Article-titleContainer">
-        <div className="Article-directory">{props.article.directory}/</div>
+        <Link to={"/articlelist/" + props.article.directory} className="Article-directory">{props.article.directory}/</Link>
         <div className="Article-title">{props.article.title}</div>
       </div>
       <div className="Article-tagContainer">{tagList}</div>

@@ -9,20 +9,24 @@ import "./ArticleItem.css";
 const ArticleItem = (props) => {
   let date = new Date(props.article.date);
   let tagList = props.article.tag.map((tagName) => (
-      <div className="ArticleItem-tag rounded-full">{tagName}</div>
+    <div className="ArticleItem-tag rounded-full">{tagName}</div>
   ));
   return (
     <div className="ArticleItem-container">
       <div className="ArticleItem-titleContainer">
-        <div className="ArticleItem-directory">{props.article.directory}/</div>
-        <Link to={"/article/" + props.article.title} className="ArticleItem-title">{props.article.title}</Link>
+        <div>
+          <Link to={"/articlelist/" + props.article.directory} className="ArticleItem-directory">
+            {props.article.directory}/
+          </Link>
+        </div>
+        <div>
+          <Link to={"/article/" + props.article.title} className="ArticleItem-title">
+            {props.article.title}
+          </Link>
+        </div>
       </div>
-      <div className="ArticleItem-description">
-        {props.article.description}
-      </div>
-      <div className="ArticleItem-tagContainer">
-        {tagList}
-      </div>
+      <div className="ArticleItem-description">{props.article.description}</div>
+      <div className="ArticleItem-tagContainer">{tagList}</div>
       <hr className="ArticleItem-line" />
       <div className="u-flex">
         <div class="material-symbols-outlined">calendar_month</div>
