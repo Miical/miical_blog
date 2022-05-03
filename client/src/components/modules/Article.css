@@ -90,6 +90,11 @@
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 00, "opsz" 48;
 }
 
+ol, ul{
+  list-style:disc;
+}
+
+
 @media (max-width: 700px) {
     .Article-container {
       max-width: 100%;
