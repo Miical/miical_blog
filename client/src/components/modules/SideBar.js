@@ -8,8 +8,6 @@ import "./SideBar.css"
 const SideBar= () => {
   (function(){    
       let oDiv=document.getElementById("SideBar-adapter");    
-      let Y=oDiv;    
-      while(Y){Y=Y.offsetParent};    
       let iE6=window.ActiveXObject&&!window.XMLHttpRequest;    
       if(!iE6){    
           window.onscroll=function()    

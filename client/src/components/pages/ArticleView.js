@@ -23,7 +23,7 @@ const ArticleView = (props) => {
   const [article, setArticle] = useState(init_article);
 
   useEffect(() => {
-    get("/api/singlearticle", { articleId: props.articleId }).then((articleObj) => {
+    get("/api/article", { articleId: props.articleId }).then((articleObj) => {
       setArticle(articleObj);
     });
   }, []);

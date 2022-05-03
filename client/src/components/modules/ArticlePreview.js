@@ -8,10 +8,10 @@ import "./ArticlePreview.css";
 /**
  * @param directory
  */
-const ArticlePreview = () => {
+const ArticlePreview = (props) => {
   const [articles, setArticles] = useState([]);
   useEffect(() => {
-    get("/api/articles").then((storiesObj) => {
+    get("/api/articlelist", {directory: props.directory}).then((storiesObj) => {
       setArticles(storiesObj);
     });
   }, []);

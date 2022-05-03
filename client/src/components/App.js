@@ -47,6 +47,7 @@ const App = () => {
       <Router>
         {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
         <ArticleView path="/article/:articleId" /> 
+        <Home path="/articlelist/:directory" /> 
         <Home path="/" /> 
         <NotFound default />
       </Router>

@@ -62,20 +62,30 @@ let ArticleList = [
   }
 ];
 let imageList = [];
-router.get("/articles", (req, res) => {
-  res.send(ArticleList);
-});
-router.get("/singlearticle", (req, res) => {
+router.get("/article", (req, res) => {
   res.send(ArticleList.find((story) => {
     return story.title === req.query.articleId;
   }));
+});
+router.get("/articlelist", (req, res) => {
+  if (req.query.directory === "all") {
+    res.send(ArticleList);
+  } else {
+    let articlelist = [];
+    for (let article of ArticleList) {
+      if (article.directory == req.query.directory)
+        articlelist.push(article);
+    }
+    res.send(articlelist);
+  }
+  let imglist = [];
 });
 router.post("/article", (req, res) => {
   ArticleList.push(req.body);
   res.send(req.body);
 });
 router.get("/image", (req, res) => {
-  let imglist = []
+  let imglist = [];
   for (let img of imageList) {
     if (img.article === req.query.article)
       imglist.push(img);
