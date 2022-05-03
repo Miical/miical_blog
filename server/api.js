@@ -11,6 +11,8 @@ const express = require("express");
 
 // import models so we can interact with the database
 const User = require("./models/user");
+const Article = require("./models/article");
+const Image = require("./models/image");
 
 // import authentication library
 const auth = require("./auth");
@@ -34,7 +36,8 @@ router.get("/whoami", (req, res) => {
 
 router.post("/initsocket", (req, res) => {
   // do nothing if user not logged in
-  if (req.user) socketManager.addUser(req.user, socketManager.getSocketFromSocketID(req.body.socketid));
+  if (req.user)
+    socketManager.addUser(req.user, socketManager.getSocketFromSocketID(req.body.socketid));
   res.send({});
 });
 
@@ -42,61 +45,35 @@ router.post("/initsocket", (req, res) => {
 // | write your API methods below!|
 // |------------------------------|
 
-let ArticleList = [
-{
-    directory: "study_notes",
-    title: "article title1",
-    description:
-      " allow miles wound place the leave had. to sitting subject no improve studied limited. ye indulgence unreserved connection alteration appearance my an astonished. up as seen sent make he they of. her raising and himself pasture believe females. fancy she stuff after aware merit small his. charmed esteems luckily age out.",
-    tag: ["王宁", "是", "憨批", "哈哈"],
-    date: 324523434,
-    content: "$ \sum_{i=1}^{n}a_{i} $  $$\sum_{i=1}^{n}a_{i}$$ \(\sum_{i=1}^{n}a_{i}\) \[\sum_{i=1}^{n}a_{i}\]"
-  }, {
-    directory: "study_notes",
-    title: "article title2",
-    description:
-      " allow miles wound place the leave had. to sitting subject no improve studied limited. ye indulgence unreserved connection alteration appearance my an astonished. up as seen sent make he they of. her raising and himself pasture believe females. fancy she stuff after aware merit small his. charmed esteems luckily age out.",
-    tag: ["dp", "note", "hanpi"],
-    date: 324523434,
-    content: "dhdsihfiusdhfiuhi"
-  }
-];
-let imageList = [];
 router.get("/article", (req, res) => {
-  res.send(ArticleList.find((story) => {
-    return story.title === req.query.articleId;
-  }));
+  Article.find({ _id: req.query._id }).then((article) => res.send(article[0]));
 });
 router.get("/articlelist", (req, res) => {
-  if (req.query.directory === "all") {
-    res.send(ArticleList);
-  } else {
-    let articlelist = [];
-    for (let article of ArticleList) {
-      if (article.directory === req.query.directory)
-        articlelist.push(article);
-    }
-    res.send(articlelist);
-  }
-  let imglist = [];
+  if (req.query.directory === "all") Article.find({}).then((article) => res.send(article));
+  else Article.find({ directory: req.query.directory }).then((article) => res.send(article));
 });
 router.post("/article", (req, res) => {
-  ArticleList.push(req.body);
-  res.send(req.body);
+  const newArticle = new Article({
+    directory: req.body.directory,
+    title: req.body.title,
+    description: req.body.description,
+    tag: req.body.tag,
+    date: req.body.date, 
+    content: req.body.content
+  });
+  newArticle.save().then((article) => res.send(article));
 });
 router.get("/image", (req, res) => {
-  let imglist = [];
-  for (let img of imageList) {
-    if (img.article === req.query.article)
-      imglist.push(img);
-  }
-  res.send(imglist);
+  Image.find({ article: req.query.article }).then((imagelist) => res.send(imagelist));
 });
 router.post("/image", (req, res) => {
-  imageList.push(req.body);
-  res.send(req.body);
+  const newImage = new Image({
+    article: req.body.article,
+    name: req.body.name,
+    data: req.body.data
+  });
+  newImage.save().then((image) => res.send(image));
 });
-
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {

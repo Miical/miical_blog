@@ -7,6 +7,7 @@ import "./ArticleView.css";
 import { get } from "../../utilities";
 
 let init_article = {
+  _id: "",
   directory: "no directory",
   title: "no title",
   description:
@@ -23,10 +24,10 @@ const ArticleView = (props) => {
   const [article, setArticle] = useState(init_article);
 
   useEffect(() => {
-    get("/api/article", { articleId: props.articleId }).then((articleObj) => {
+    get("/api/article", { _id: props._id }).then((articleObj) => {
       setArticle(articleObj);
     });
-  }, []);
+  }, [props._id]);
 
   return (
     <>

@@ -20,7 +20,7 @@ const ArticleItem = (props) => {
           </Link>
         </div>
         <div>
-          <Link to={"/article/" + props.article.title} className="ArticleItem-title">
+          <Link to={"/article/" + props.article._id} className="ArticleItem-title">
             {props.article.title}
           </Link>
         </div>

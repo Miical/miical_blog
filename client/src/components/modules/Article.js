@@ -22,10 +22,10 @@ const Article = (props) => {
   ));
   const [imageList, setImageList] = useState([]);
   useEffect(() => {
-    get("/api/image", { article: props.article.title }).then((imgListObj) => {
+    get("/api/image", { article: props.article._id }).then((imgListObj) => {
       setImageList(imgListObj);
     });
-  }, [props.article.title]);
+  }, [props.article._id]);
 
   return (
     <div className="Article-container">
