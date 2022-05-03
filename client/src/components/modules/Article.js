@@ -6,7 +6,7 @@ import ReactDom from "react-dom";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-import "./github-markdown-css/github-markdown.css";
+import "./github-markdown-css/github-markdown-light.css";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { get } from "../../utilities";
