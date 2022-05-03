@@ -5,7 +5,7 @@ import UploadArticle from "./UploadArticle";
 import UploadImage from "./UploadImage";
 import "./SideBar.css";
 
-const SideBar = () => {
+const SideBar = (props) => {
   (function () {
     let iE6 = window.ActiveXObject && !window.XMLHttpRequest;
     if (!iE6) {
@@ -28,7 +28,7 @@ const SideBar = () => {
       <ProfileCard />
       <ArticleList />
       <UploadArticle />
-      <UploadImage />
+      <UploadImage article={props.article}/>
     </div>
   );
 };

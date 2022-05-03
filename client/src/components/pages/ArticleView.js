@@ -33,7 +33,7 @@ const ArticleView = (props) => {
     <>
       <NavBar />
       <div className="MainContainer">
-        <SideBar />
+        <SideBar article={article} />
         <Article article={article} />
       </div>
     </>
