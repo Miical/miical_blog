@@ -17,7 +17,7 @@
   font-weight: 500;
   font-size: larger;
   color: rgb(87, 96, 106);
-  margin-left: 15px;
+  margin-left: 20px;
 }
 
 .ArticleItem-directory {
@@ -33,7 +33,7 @@
   font-weight: 300;
   font-size: 15px;
   color: black;
-  margin: 2px 15px 2px 15px;
+  margin: 10px 15px 2px 15px;
 }
 
 .ArticleItem-tagContainer {

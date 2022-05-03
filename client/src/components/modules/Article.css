@@ -5,8 +5,8 @@
   margin: 10px 10px 10px 10px;
   height: auto;
 
-  max-width: 55%;
-  width: 55%;
+  max-width: 65%;
+  width: 65%;
 }
 
 .Article-titleContainer {
@@ -95,9 +95,9 @@ ol, ul{
 }
 
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     .Article-container {
-      max-width: 100%;
-      width: 100%;
+      max-width: 95%;
+      width: 95%;
     };
 }
