@@ -87,6 +87,7 @@
 .Article-titlebuttonContainer{
   display: flex;
   justify-content: space-between;
+  background-color: rgb(246, 248, 250);
 }
 .Article-removeButton {
   background-color: rgb(233,73,73);
