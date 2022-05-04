@@ -49,16 +49,20 @@ router.get("/article", (req, res) => {
   Article.find({ _id: req.query._id }).then((article) => res.send(article[0]));
 });
 router.get("/articlelist", (req, res) => {
-  if (req.query.directory === "all") Article.find({}).then((article) => res.send(article));
-  else Article.find({ directory: req.query.directory }).then((article) => res.send(article));
+  if (req.query.directory === "all")
+    Article.find({}, { content: false }).then((article) => res.send(article));
+  else
+    Article.find({ directory: req.query.directory }, { content: false }).then((article) =>
+      res.send(article)
+    );
 });
 router.post("/article", (req, res) => {
   const newArticle = new Article({
     directory: req.body.directory,
     title: req.body.title,
     tag: req.body.tag,
-    date: req.body.date, 
-    content: req.body.content
+    date: req.body.date,
+    content: req.body.content,
   });
   newArticle.save().then((article) => res.send(article));
 });
@@ -69,7 +73,7 @@ router.post("/image", (req, res) => {
   const newImage = new Image({
     article: req.body.article,
     name: req.body.name,
-    data: req.body.data
+    data: req.body.data,
   });
   newImage.save().then((image) => res.send(image));
 });

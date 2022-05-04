@@ -28,14 +28,6 @@
   margin-left: 5px;
 }
 
-.ArticleItem-description {
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  font-size: 15px;
-  color: black;
-  margin: 10px 15px 2px 15px;
-}
-
 .ArticleItem-tagContainer {
   display: flex;
   justify-content: left;
