@@ -84,6 +84,22 @@
   width: 80%;
 }
 
+.Article-titlebuttonContainer{
+  display: flex;
+  justify-content: space-between;
+}
+.Article-removeButton {
+  background-color: rgb(233,73,73);
+  height: 32px;
+  font-family: 'Ubuntu', sans-serif;
+  color: white; 
+  font-size: 14px; 
+  padding: 4px 10px 4px 10px;
+  border-radius: 7px; 
+  position: relative; 
+  margin: 10px 10px 10px 10px;
+}
+
 .material-symbols-outlined {
   zoom: 60%;
   margin: 3px 5px 2px 15px;

@@ -10,7 +10,7 @@ import "./github-markdown-css/github-markdown-light.css";
 import { Link } from "@reach/router";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { get } from "../../utilities";
+import { get, post } from "../../utilities";
 
 /**
  * @param article
@@ -27,11 +27,22 @@ const Article = (props) => {
     });
   }, [props.article._id]);
 
+  let removeArticle = () => {
+    post("/api/remove/", { _id: props.article._id });
+  };
+
   return (
     <div className="Article-container">
-      <div className="Article-titleContainer">
-        <Link to={"/articlelist/" + props.article.directory} className="Article-directory">{props.article.directory}/</Link>
-        <div className="Article-title">{props.article.title}</div>
+      <div className="Article-titlebuttonContainer">
+        <div className="Article-titleContainer">
+          <Link to={"/articlelist/" + props.article.directory} className="Article-directory">
+            {props.article.directory}/
+          </Link>
+          <div className="Article-title">{props.article.title}</div>
+        </div>
+        <button onClick={removeArticle} className="Article-removeButton">
+          Remove
+        </button>
       </div>
       <div className="Article-tagContainer">{tagList}</div>
       <div className="Article-dateContainer">

@@ -66,6 +66,15 @@ router.post("/article", (req, res) => {
   });
   newArticle.save().then((article) => res.send(article));
 });
+router.post("/remove", (req, res) => {
+  Article.deleteOne({_id: req.body._id}, (err, obj) => {
+    if (err) throw err;
+  });
+  Image.deleteOne({article: req.body._id}, (err, obj) => {
+    if (err) throw err;
+    res.send({success: true})
+  });
+});
 router.get("/image", (req, res) => {
   Image.find({ article: req.query.article }).then((imagelist) => res.send(imagelist));
 });
