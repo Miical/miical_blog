@@ -45,7 +45,7 @@ const App = () => {
   return (
     <>
       <Router>
-        {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
+        <Skeleton path="/skeleton" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
         <ArticleView path="/article/:_id" /> 
         <Home path="/articlelist/:directory" /> 
         <Home path="/" /> 
