@@ -79,12 +79,14 @@ router.get("/image", (req, res) => {
   Image.find({ article: req.query.article }).then((imagelist) => res.send(imagelist));
 });
 router.post("/image", (req, res) => {
-  const newImage = new Image({
-    article: req.body.article,
-    name: req.body.name,
-    data: req.body.data,
-  });
-  newImage.save().then((image) => res.send(image));
+  for (let img of req.body) {
+    const newImage = new Image({
+      article: img.article,
+      name: img.name,
+      data: img.data,
+    });
+    newImage.save();
+  }
 });
 
 // anything else falls to this "not found" case

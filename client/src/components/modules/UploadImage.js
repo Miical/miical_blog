@@ -3,27 +3,26 @@ import "./UploadImage.css";
 import { post } from "../../utilities";
 
 const UploadImage = (props) => {
-  let image = {
-    name: "",
-    article: "",
-    data: "",
-  };
+  let image = [];
   const showFile = (e) => {
     var files = e.target.files;
     var filesArray = [].slice.call(files);
     filesArray.forEach((e) => {
-      image.name = e.name;
+      image.push({name: e.name, article: "", data: ""});
     });
     e.preventDefault();
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const text = e.target.result;
-      image.data = text;
-    };
-    reader.readAsDataURL(e.target.files[0]);
+    for (let i = 0; i < e.target.files.length; i++) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const text = e.target.result;
+        image[i].data = text;
+      };
+      reader.readAsDataURL(e.target.files[i]);
+    }
   };
   const Upload = () => {
-    image.article = props.article._id;
+    for (let img of image)
+      img.article = props.article._id;
     post("/api/image", image);
   };
 
@@ -41,7 +40,7 @@ const UploadImage = (props) => {
         <div className="UploadImage-name">Select Image</div>
         <input
           type="file"
-          // multiple="multiple"
+          multiple="multiple"
           onChange={showFile}
           className="UploadImage-selectFile"
         />
