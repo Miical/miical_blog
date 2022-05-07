@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const ArticleSchema = new mongoose.Schema({
   directory: String,
   title: String,
-  description: String,
   tag: [String],
   date: Number, 
   content: String

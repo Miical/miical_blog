@@ -8,7 +8,7 @@ import "./Home.css";
 const Home = (props) => {
   return (
     <>
-      <NavBar />
+      <NavBar pathname={props.directory? "/articlelist/"+props.directory: "/"}/>
       <div className="MainContainer">
         <SideBar />
         <ArticlePreview directory={props.directory? props.directory: "all"}/>
