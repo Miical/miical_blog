@@ -1,41 +1,11 @@
-.navbar-light {
-  padding: var(--s) var(--m);
-  background-color: white;
-  /* height: 40px; */
-  position: sticky;
-  top: 0;
-  margin: 0 0 0 0;
-  padding: 15px 5px 15px 5px;
+.Navbar-container {
   box-shadow: 1px 1px 5px rgb(200, 200, 200);
-  z-index: 1000;
-  display: flex;
-  justify-content: left;
+  background-color: white !important;
 }
 
-link {
-  color: rgba(0, 0, 0, 0.55);
-}
-.navbar-container {
-  display: flex;  
-}
-.navbar-brand {
+.Navbar-title {
   font-family: "Ubuntu", sans-serif;
-  margin: 0px 10px 0px 40px;
-  color: rgb(15, 136, 235);
-  font-size: large;
-  text-decoration: none;
-}
-.nav-link {
-  font-family: "Roboto", sans-serif;
-  color: rgba(0, 0, 0, 0.55);
-  font-size: 15px;
-  margin-left: 20px;
-  text-decoration: none;
-  transition: color 0.15s ease-in-out;
-}
-.nav-link:hover {
-  color: grey;
-  font-weight: 400;
+  color: rgb(15, 136, 235)!important;
 }
 
 .nav-link.active {
@@ -43,19 +13,7 @@ link {
   font-weight: 500;
 }
 
-
-@media (min-height: 1500px) {
-  .NavBar-container {
-    height: 120px;
-    position: sticky;
-  }
-
-  .NavBar-title {
-    margin: 30px 5px 5px 30px;
-    font-size: 50px;
-  }
-
-  .NavBar-link {
-    display: none;
-  }
+.googleLogin {
+  box-shadow: 0 0 0 0 white !important;
+  width: 100%;
 }

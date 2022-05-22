@@ -10,9 +10,8 @@ let init_article = {
   _id: "",
   directory: "no directory",
   title: "no title",
-  description:
-    "no description",
-  tag: ['empty'],
+  description: "no description",
+  tag: ["empty"],
   date: 0,
   content: "no content",
 };
@@ -31,7 +30,7 @@ const ArticleView = (props) => {
 
   return (
     <>
-      <NavBar />
+      <NavBar pathname={"/article/" + props._id} />
       <div className="MainContainer">
         <SideBar article={article} />
         <Article article={article} />

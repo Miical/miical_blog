@@ -19,6 +19,7 @@ const Skeleton = ({ userId, handleLogin, handleLogout }) => {
         />
       ) : (
         <GoogleLogin
+          className="googleLogin"
           clientId={GOOGLE_CLIENT_ID}
           buttonText="Login"
           onSuccess={handleLogin}
