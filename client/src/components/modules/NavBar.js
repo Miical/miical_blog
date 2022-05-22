@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./ArticleList.css";
 import { get } from "../../utilities";
 import { Link } from "@reach/router";
 import GoogleLogin, { GoogleLogout } from "react-google-login";

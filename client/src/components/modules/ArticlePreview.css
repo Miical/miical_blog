@@ -14,7 +14,7 @@
   color: rgb(208,215,222); 
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
     .ArticlePreview-container {
       max-width: 95%;
       width: 95%;

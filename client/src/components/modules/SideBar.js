@@ -16,7 +16,7 @@ const SideBar = (props) => {
         let divH = oDiv.clientHeight;
         if (screenH > divH) {
           oDiv.style.position = "sticky";
-          oDiv.style.top = window.innerHeight - divH + "px";
+          oDiv.style.top = window.innerHeight - divH - 70 + "px";
         } else {
           oDiv.style.position = "relative";
           oDiv.style.top = 0;
@@ -28,8 +28,8 @@ const SideBar = (props) => {
     <div className="SideBar-adapter" id="SideBar-adapter">
       <ProfileCard />
       <ArticleList />
-      <UploadArticle />
-      <UploadImage article={props.article}/>
+      {/* <UploadArticle /> */}
+      {/* <UploadImage article={props.article}/> */}
     </div>
   );
 };
