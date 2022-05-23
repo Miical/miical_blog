@@ -8,7 +8,7 @@ import { get, post } from "../utilities";
 import Home from "./pages/Home.js";
 import ArticleView from "./pages/ArticleView.js";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 /**
  * Define the "App" component
@@ -42,10 +42,25 @@ const App = () => {
   return (
     <>
       <Router>
-        <Skeleton path="/skeleton" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
-        <ArticleView path="/article/:_id" /> 
-        <Home path="/articlelist/:directory" /> 
-        <Home path="/" /> 
+        <Skeleton
+          path="/skeleton"
+          handleLogin={handleLogin}
+          handleLogout={handleLogout}
+          userId={userId}
+        />
+        <ArticleView
+          path="/article/:_id"
+          handleLogin={handleLogin}
+          handleLogout={handleLogout}
+          userId={userId}
+        />
+        <Home
+          path="/articlelist/:directory"
+          handleLogin={handleLogin}
+          handleLogout={handleLogout}
+          userId={userId}
+        />
+        <Home path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
         <NotFound default />
       </Router>
     </>

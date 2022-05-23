@@ -30,7 +30,12 @@ const ArticleView = (props) => {
 
   return (
     <>
-      <NavBar pathname={"/article/" + props._id} />
+      <NavBar
+        pathname={"/article/" + props._id}
+        userId={props.userId}
+        handleLogin={props.handleLogin}
+        handleLogout={props.handleLogout}
+      />
       <div className="MainContainer">
         <SideBar article={article} />
         <Article article={article} />

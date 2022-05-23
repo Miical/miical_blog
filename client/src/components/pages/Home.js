@@ -8,10 +8,15 @@ import "./Home.css";
 const Home = (props) => {
   return (
     <>
-      <NavBar pathname={props.directory? "/articlelist/"+props.directory: "/"}/>
+      <NavBar
+        pathname={props.directory ? "/articlelist/" + props.directory : "/"}
+        userId={props.userId}
+        handleLogin={props.handleLogin}
+        handleLogout={props.handleLogout}
+      />
       <div className="MainContainer">
         <SideBar />
-        <ArticlePreview directory={props.directory? props.directory: "all"}/>
+        <ArticlePreview directory={props.directory ? props.directory : "all"} />
       </div>
     </>
   );
