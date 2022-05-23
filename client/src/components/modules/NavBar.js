@@ -10,7 +10,7 @@ const GOOGLE_CLIENT_ID = "935092820769-9d2d5v809unq0rftffv4gegbvo7ma5s0.apps.goo
 /**
  * The navigation bar at the top of pages.
  */
-const NavBar = ({ pathname, userId, handleLogin, handleLogout }) => {
+const NavBar = ({ pathname, userId, userName, handleLogin, handleLogout }) => {
   const [articles, setArticles] = useState([]);
   useEffect(() => {
     get("/api/articlelist", { directory: "all" }).then((articlesObj) => {
@@ -65,7 +65,7 @@ const NavBar = ({ pathname, userId, handleLogin, handleLogout }) => {
           </Nav>
           <Nav>
             {userId ? (
-              <NavDropdown title={userId} id="basic-nav-dropdown">
+              <NavDropdown title={userName} id="basic-nav-dropdown">
                 <GoogleLogout
                   className="googleLogin"
                   clientId={GOOGLE_CLIENT_ID}

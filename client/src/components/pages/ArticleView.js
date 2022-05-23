@@ -35,6 +35,7 @@ const ArticleView = (props) => {
         userId={props.userId}
         handleLogin={props.handleLogin}
         handleLogout={props.handleLogout}
+        userName={props.userName} 
       />
       <div className="MainContainer">
         <SideBar article={article} />

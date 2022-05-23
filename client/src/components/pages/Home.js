@@ -13,6 +13,7 @@ const Home = (props) => {
         userId={props.userId}
         handleLogin={props.handleLogin}
         handleLogout={props.handleLogout}
+        userName={props.userName} 
       />
       <div className="MainContainer">
         <SideBar />

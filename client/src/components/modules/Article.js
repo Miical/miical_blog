@@ -89,7 +89,7 @@ const Article = (props) => {
     </Card>
   ) : (
     <Card className="Article-container">
-      <div style={{ margin: "100px auto auto 48%" }}>
+      <div style={{ margin: "100px auto 100px 48%" }}>
         <Spinner animation="grow" />
       </div>
     </Card>

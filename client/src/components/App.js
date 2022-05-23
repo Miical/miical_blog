@@ -15,6 +15,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
  */
 const App = () => {
   const [userId, setUserId] = useState(undefined);
+  const [userName, setUserName] = useState(undefined);
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
@@ -27,6 +28,7 @@ const App = () => {
 
   const handleLogin = (res) => {
     console.log(`Logged in as ${res.profileObj.name}`);
+    setUserName(res.profileObj.name);
     const userToken = res.tokenObj.id_token;
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
@@ -53,14 +55,22 @@ const App = () => {
           handleLogin={handleLogin}
           handleLogout={handleLogout}
           userId={userId}
+          userName={userName}
         />
         <Home
           path="/articlelist/:directory"
           handleLogin={handleLogin}
           handleLogout={handleLogout}
           userId={userId}
+          userName={userName}
         />
-        <Home path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+        <Home
+          path="/"
+          handleLogin={handleLogin}
+          handleLogout={handleLogout}
+          userId={userId}
+          userName={userName}
+        />
         <NotFound default />
       </Router>
     </>
