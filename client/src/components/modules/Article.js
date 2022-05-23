@@ -11,6 +11,7 @@ import { Link } from "@reach/router";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { get, post } from "../../utilities";
+import { Card, Badge, Spinner } from "react-bootstrap";
 
 /**
  * @param article
@@ -18,7 +19,11 @@ import { get, post } from "../../utilities";
 const Article = (props) => {
   let date = new Date(props.article.date);
   let tagList = props.article.tag.map((tagName) => (
-    <div className="Article-tag rounded-full">{tagName}</div>
+    <>
+      <Badge pill bg="primary">
+        {tagName}
+      </Badge>{" "}
+    </>
   ));
   const [imageList, setImageList] = useState([]);
   useEffect(() => {
@@ -31,26 +36,20 @@ const Article = (props) => {
     post("/api/remove/", { _id: props.article._id });
   };
 
-  return (
-    <div className="Article-container">
-      <div className="Article-titlebuttonContainer">
-        <div className="Article-titleContainer">
-          <Link to={"/articlelist/" + props.article.directory} className="Article-directory">
-            {props.article.directory}/
-          </Link>
-          <div className="Article-title">{props.article.title}</div>
-        </div>
-        <button onClick={removeArticle} className="Article-removeButton">
-          Remove
-        </button>
-      </div>
-      <div className="Article-tagContainer">{tagList}</div>
-      <div className="Article-dateContainer">
-        <div class="material-symbols-outlined">calendar_month</div>
-        <div className="Article-date">{date.toDateString()}</div>
-      </div>
+  return props.article._id ? (
+    <Card className="Article-container">
+      <Card.Header>
+        <Card.Link href={"/articlelist/" + props.article.directory} className="Article-directory">
+          {props.article.directory}/ <br />
+        </Card.Link>
+        <Card.Text className="Article-title">{props.article.title}</Card.Text>
+      </Card.Header>
+      <Card.Body>
+        {tagList}
+        <Card.Text className="Article-date">{date.toDateString()}</Card.Text>
+      </Card.Body>
       <hr className="Article-line" />
-      <div className="Article-MDcontainer">
+      <Card.Body className="Article-MDcontainer">
         <ReactMarkdown
           children={props.article.content}
           escapeHtml={false}
@@ -77,12 +76,23 @@ const Article = (props) => {
             img: ({ src, ...props }) => {
               let img = imageList.find((imgobj) => imgobj.name === src.split("/")[1]);
               if (img) return <img src={img.data} className="Article-img" />;
-              else return <div>image not found</div>;
+              else
+                return (
+                  <div style={{ margin: "50px auto 50px 48%" }}>
+                    <Spinner animation="grow" variant="secondary" />
+                  </div>
+                );
             },
           }}
         />
+      </Card.Body>
+    </Card>
+  ) : (
+    <Card className="Article-container">
+      <div style={{ margin: "100px auto auto 48%" }}>
+        <Spinner animation="grow" />
       </div>
-    </div>
+    </Card>
   );
 };
 

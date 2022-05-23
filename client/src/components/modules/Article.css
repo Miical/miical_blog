@@ -1,58 +1,24 @@
 .Article-container {
-  border-color: rgb(208, 215, 222);
-  border-width: 1px;
-  border-radius: 6px;
-  margin: 10px 10px 10px 10px;
-  height: auto;
+  margin: 2px 10px 10px 10px;
 
   max-width: 65%;
   width: 65%;
 }
 
-.Article-titleContainer {
-  background-color: rgb(246, 248, 250);
-  padding: 6px 4px 6px 5px;
-}
-
 .Article-title {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  font-size: larger;
+  font-size: 21px;
   color: rgb(87, 96, 106);
-  margin-left: 15px;
+  margin-left: 20px;
 }
 
 .Article-directory {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: small;
+  font-size: 13px;
   color: rgb(87, 96, 106);
-  margin-left: 5px;
 }
-
-.Article-description {
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  font-size: 15px;
-  color: black;
-  margin: 2px 15px 2px 15px;
-}
-
-.Article-tagContainer {
-  display: flex;
-  justify-content: left;
-  margin: 2px 10px 2px 10px;
-}
-
-.Article-tag {
-  width: fit-content;
-  padding: 3px 10px 3px 10px;
-  margin: 5px 5px 5px 5px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: small;
-  color: rgb(87, 96, 106);
-  background-color: rgb(235, 238, 243);
+.Article-directory:hover {
+  color: rgb(50, 51, 53);
 }
 
 .Article-line {
@@ -61,11 +27,9 @@
 }
 
 .Article-date {
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
   font-size: smaller;
-  color: black;
-  margin: 0px 15px 3px 2px;
+  background-color: white !important;
+  text-align: right;
 }
 
 .Article-dateContainer {
@@ -74,47 +38,24 @@
 }
 
 .Article-MDcontainer {
-  margin: 30px 30px 30px 30px;
+  margin: 1% 5% 1% 5%;
 }
 
-.Article-img{
+.Article-img {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 80%;
 }
 
-.Article-titlebuttonContainer{
-  display: flex;
-  justify-content: space-between;
-  background-color: rgb(246, 248, 250);
-}
-.Article-removeButton {
-  background-color: rgb(233,73,73);
-  height: 32px;
-  font-family: 'Ubuntu', sans-serif;
-  color: white; 
-  font-size: 14px; 
-  padding: 4px 10px 4px 10px;
-  border-radius: 7px; 
-  position: relative; 
-  margin: 10px 10px 10px 10px;
+ol,
+ul {
+  list-style: disc;
 }
 
-.material-symbols-outlined {
-  zoom: 60%;
-  margin: 3px 5px 2px 15px;
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 00, "opsz" 48;
-}
-
-ol, ul{
-  list-style:disc;
-}
-
-
-@media (max-width: 800px) {
-    .Article-container {
-      max-width: 95%;
-      width: 95%;
-    };
+@media (max-width: 768px) {
+  .Article-container {
+    max-width: 95%;
+    width: 95%;
+  }
 }

@@ -13,7 +13,7 @@ const ProfileCard = () => {
     <Card.Title>Miical's blog</Card.Title>
     <Card.Text>
       Welcome to my blog! <br/>
-      Here I will document my experience of studying computer science and technology<br/>
+      Here I will document my experience of studying computer science and technology.<br/>
       Progress Together!
     </Card.Text>
   </Card.Body>
