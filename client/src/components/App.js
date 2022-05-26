@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
-import Skeleton from "./pages/Skeleton.js";
 import "../utilities.css";
 import { socket } from "../client-socket.js";
 import { get, post } from "../utilities";
@@ -45,12 +44,6 @@ const App = () => {
   return (
     <>
       <Router>
-        <Skeleton
-          path="/skeleton"
-          handleLogin={handleLogin}
-          handleLogout={handleLogout}
-          userId={userId}
-        />
         <ArticleView
           path="/article/:_id"
           handleLogin={handleLogin}
