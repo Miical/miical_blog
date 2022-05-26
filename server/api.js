@@ -70,7 +70,7 @@ router.post("/remove", (req, res) => {
   Article.deleteOne({_id: req.body._id}, (err, obj) => {
     if (err) throw err;
   });
-  Image.deleteOne({article: req.body._id}, (err, obj) => {
+  Image.deleteMany({article: req.body._id}, (err, obj) => {
     if (err) throw err;
     res.send({success: true})
   });
