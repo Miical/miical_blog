@@ -6,6 +6,7 @@ import "../utilities.css";
 import { socket } from "../client-socket.js";
 import { get, post } from "../utilities";
 import Home from "./pages/Home.js";
+import Management from "./pages/Management.js";
 import ArticleView from "./pages/ArticleView.js";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -20,7 +21,7 @@ const App = () => {
   useEffect(() => {
     get("/api/whoami").then((user) => {
       if (user._id) {
-        setUserName(user.name)
+        setUserName(user.name);
         setUserId(user._id);
       }
     });
@@ -66,6 +67,13 @@ const App = () => {
         />
         <Home
           path="/"
+          handleLogin={handleLogin}
+          handleLogout={handleLogout}
+          userId={userId}
+          userName={userName}
+        />
+        <Management
+          path="/manage"
           handleLogin={handleLogin}
           handleLogout={handleLogout}
           userId={userId}

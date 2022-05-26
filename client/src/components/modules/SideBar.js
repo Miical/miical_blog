@@ -2,7 +2,6 @@ import React from "react";
 import ProfileCard from "./ProfileCard";
 import ArticleList from "./ArticleList";
 import UploadArticle from "./UploadArticle";
-import UploadImage from "./UploadImage";
 import "./SideBar.css";
 
 
@@ -28,8 +27,7 @@ const SideBar = (props) => {
     <div className="SideBar-adapter" id="SideBar-adapter">
       <ProfileCard />
       <ArticleList />
-      {/* <UploadArticle /> */}
-      {/* <UploadImage article={props.article}/> */}
+      <UploadArticle manage={props.manage}/>
     </div>
   );
 };

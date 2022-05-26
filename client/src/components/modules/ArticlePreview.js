@@ -19,7 +19,9 @@ const ArticlePreview = (props) => {
   let articlesList = null;
   if (articles.length !== 0) {
     articles.sort((a, b) => b.date - a.date);
-    articlesList = articles.map((articleObj) => <ArticleItem article={articleObj} />);
+    articlesList = articles.map((articleObj) => (
+      <ArticleItem manage={props.manage} article={articleObj} />
+    ));
   } else {
     articlesList = null;
   }

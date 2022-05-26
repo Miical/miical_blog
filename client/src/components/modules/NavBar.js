@@ -59,9 +59,13 @@ const NavBar = ({ pathname, userId, userName, handleLogin, handleLogout }) => {
               <NavDropdown.Divider />
               {dirItemList}
             </NavDropdown>
-            <Nav.Link href="manage" disabled>
-              Article Management
-            </Nav.Link>
+            {userId === "6273e023124e2f0023a579ff" ? (
+              <Nav.Link href="/manage">Article Management</Nav.Link>
+            ) : (
+              <Nav.Link href="/manage" disabled>
+                Article Management
+              </Nav.Link>
+            )}
           </Nav>
           <Nav>
             {userId ? (

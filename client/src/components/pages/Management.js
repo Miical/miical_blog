@@ -3,24 +3,24 @@ import NavBar from "../modules/NavBar";
 import SideBar from "../modules/SideBar";
 import ArticlePreview from "../modules/ArticlePreview";
 
-import "./Home.css";
+import "./Management.css";
 
-const Home = (props) => {
+const Management = (props) => {
   return (
     <>
       <NavBar
-        pathname={props.directory ? "/articlelist/" + props.directory : "/"}
+        pathname="/manage"
         userId={props.userId}
         handleLogin={props.handleLogin}
         handleLogout={props.handleLogout}
         userName={props.userName} 
       />
       <div className="MainContainer">
-        <SideBar manage={false}/>
-        <ArticlePreview manage={false} directory={props.directory ? props.directory : "all"} />
+        <SideBar manage={true}/>
+        <ArticlePreview manage={true} directory={props.directory ? props.directory : "all"} />
       </div>
     </>
   );
 };
 
-export default Home;
+export default Management;
