@@ -32,10 +32,6 @@ const Article = (props) => {
     });
   }, [props.article._id]);
 
-  let removeArticle = () => {
-    post("/api/remove/", { _id: props.article._id });
-  };
-
   return props.article._id ? (
     <Card className="Article-container">
       <Card.Header>
@@ -44,7 +40,7 @@ const Article = (props) => {
         </Card.Link>
         <Card.Text className="Article-title">{props.article.title}</Card.Text>
       </Card.Header>
-      <Card.Body>
+      <Card.Body style={{maxHeight: "80px"}}>
         {tagList}
         <Card.Text className="Article-date">{date.toDateString()}</Card.Text>
       </Card.Body>
