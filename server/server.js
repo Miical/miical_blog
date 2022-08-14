@@ -52,8 +52,8 @@ mongoose
 const app = express();
 
 // change post limit
-app.use(express.json({limit: '5mb', extended: true}));
-app.use(express.urlencoded({limit: "5mb", extended: true, parameterLimit:5000}));
+app.use(express.json({limit: '100mb', extended: true}));
+app.use(express.urlencoded({limit: "100mb", extended: true, parameterLimit:5000}));
 
 app.use(validator.checkRoutes);
 
