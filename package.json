@@ -4,9 +4,11 @@
   "description": "",
   "main": "server/server.js",
   "scripts": {
-    "hotloader": "webpack serve --config ./webpack.config.js --mode development --port 5000",
+    "hotloader": "webpack serve --config ./webpack.config.js --mode development --port 5678",
     "start": "nodemon --ignore client/",
-    "build": "webpack"
+    "build": "webpack",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -14,9 +16,9 @@
   },
   "author": "",
   "license": "ISC",
-  "homepage": "",
+  "homepage": "http://miical.github.io/miical_blog",
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   },
   "dependencies": {
     "@reach/router": "^1.3.4",
@@ -56,6 +58,7 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
     "file-loader": "^6.2.0",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^4.5.0",
     "react-hot-loader": "^4.13.0",
     "style-loader": "^2.0.0",
